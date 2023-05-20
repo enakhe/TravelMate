@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/all.css" />
+    <title>Portare Mate</title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg border-bottom fixed-top bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/img/main_logo.png" alt="Portare Mate" width="130">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Trips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Memebership</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="/authenticate/login" class="btn bg-primary w-100 mr-5">Log In</a>
+                    <a href="/authenticate/register" class="btn btn-secondary w-100">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Side Bar -->
+    <div class="sidebar bg-light">
+        <ul class="nav flex-column top-90">
+            <li class="nav-item p-2">
+                <a class="nav-link" href="/flights"><i class="fa-solid fa-plane fa-fade"></i> Flights</a>
+            </li>
+            <li class="nav-item p-2">
+                <a class="nav-link" href="/stays"><i class="fa-solid fa-bed fa-flip"></i> Stays</a>
+            </li>
+            <li class="nav-item p-2">
+                <a class="nav-link" href="/trains-buses"><i class="fa-solid fa-bus fa-beat"></i> Trains & Buses</a>
+            </li>
+            <li class="nav-item p-2 border-bottom mb-1">
+                <a class="nav-link" href="/cars"><i class="fa-solid fa-car fa-beat"></i> Cars</a>
+            </li>
+            <li class="nav-item p-2">
+                <a class="nav-link" href="/explore"><i class="fa-solid fa-brightness-low fa-spin"></i> Explore</a>
+            </li>
+            <li class="nav-item p-2 border-bottom mb-1">
+                <a class="nav-link" href="/tour"><i class="fa-solid fa-house-turret fa-flip"></i> Tour</a>
+            </li>
+            <li class="nav-item p-2">
+                <a class="nav-link" href="/contact"><i class="fa-solid fa-address-card"></i> Contact</a>
+            </li>
+            <li class="nav-item p-2 border-bottom">
+                <a class="nav-link" href="/privacy"><i class="fa-solid fa-lock"></i> Privacy</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <%- body %>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" data-bs-autohide="false" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header text-dark">
+                <i class="fa-solid fa-circle-exclamation mr-5"></i>
+                <strong class="me-auto">Portare Weather</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-dark">
+                <p class="showHumidity"></p>
+                <p class="showTemp"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/umd/popper.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/site.js"></script>
+</body>
+
+</html>
