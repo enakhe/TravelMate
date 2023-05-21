@@ -33,6 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
         toast.show();
     });
 
-    const currentDate = new Date();
-    document.querySelector('.date').value = currentDate.toDateString();
+    const icon = document.querySelector('.icon');
+    icon.addEventListener('click', () => {
+        document.querySelector('.sidebar').style.display = 'block';
+        document.querySelector('.sidebar').style.width = '100%';
+        document.querySelector('.sidebar').style.position = 'absolute';
+        document.querySelector('div.content').style.display = 'none';
+    });
+
+    const times = document.querySelector('.times');
+    times.addEventListener('click', () => {
+        document.querySelector('.sidebar').style.display = 'none';
+        // document.querySelector('.sidebar').style.width = '100%';
+        // document.querySelector('.sidebar').style.position = 'absolute';
+        document.querySelector('div.content').style.display = 'block';
+    });
 })

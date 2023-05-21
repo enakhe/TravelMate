@@ -1,0 +1,31 @@
+<div class="login-form">
+    <div class="form">
+        <div class="logo">
+            <img src="/img/main_logo.png" class="img-fluid mb-3" alt="Portare Mate" width="200">
+        </div>
+        <div class="card card-body pt-5">
+            <h1 class="text-center mb-3">Register</h1>
+            <form action="/authenticate/login" method="POST">
+                <div class="form-group mb-3">
+                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="password" id="password" name="password" class="form-control" placeholder=" Password" />
+                </div>
+                <div class="form-group mb-3">
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" />
+                </div>
+                <button type="submit" class="btn bg-primary w-100">Register</button>
+            </form>
+            <p class="mt-4">
+                Have an Account? <a href="/authenticate/login">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
