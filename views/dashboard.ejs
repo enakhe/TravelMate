@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="text-dark main-heading">Dashboard</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-bg-light mb-3">
+
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-10">
+                        Places
+                    </div>
+                    <div class="col-md-2">
+                        <i class="fa-solid fa-place-of-worship"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <% if(typeof places != 'undefined') { %>
+                <h3 class="card-title"> <%= places.length %> </h3>
+                <% } %>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted text-dark border-bottom"><a href="/dashboard/places"
+                            class="nav-link mr-5">More info <i class="fas fa-arrow-circle-right"></i> </a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-light mb-3">
+    
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-10">
+                        Categories
+                    </div>
+                    <div class="col-md-2">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="card-body">
+                <% if(typeof categories != 'undefined') { %>
+                <h3 class="card-title"> <%= categories.length %> </h3>
+                <% } %>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted text-dark border-bottom"><a href="/dashboard/category" class="nav-link mr-5">More
+                            info <i class="fas fa-arrow-circle-right"></i> </a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

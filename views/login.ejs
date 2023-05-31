@@ -1,8 +1,11 @@
 <div class="login-form">
     <div class="form">
         <div class="logo">
-            <img src="/img/main_logo.png" class="img-fluid mb-3" alt="Portare Mate" width="200">
+            <a href="/">
+                <img src="/img/main_logo.png" class="img-fluid mb-3" alt="Portare Mate" width="200">
+            </a>
         </div>
+        <%- include('../partials/message'); %>
         <div class="card card-body pt-5">
             <h1 class="text-center mb-3">Login</h1>
             <form action="/authenticate/login" method="POST">

@@ -10,6 +10,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.trash {
+    color: #1e3050;
+}
+
 .bg-primary {
     color: #fff;
     background: var(--primary-color);
@@ -43,13 +47,29 @@
     outline: none;
 }
 
-btn:focus,
-a:focus {
+.form-select {
+    border-radius: 3px !important;
     outline: none;
 }
 
+.btn:focus,
+a:focus {
+    outline: none !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-close:focus {
+    outline: none !important;
+}
+
 .navbar-toggler:focus,
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     outline: none !important;
     box-shadow: none;
 }
@@ -107,8 +127,8 @@ a:focus {
 }
 
 /* Active/current link */
-.sidebar a.active {
-    background-color: #04AA6D;
+.sidebar li .active {
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -158,13 +178,11 @@ div.content {
     }
 }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-
 
 /* Login */
 .login-form {
     position: fixed;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;

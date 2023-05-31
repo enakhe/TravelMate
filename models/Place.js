@@ -26,6 +26,16 @@ const PlaceShema = mongoose.Schema({
         required: true
     },
 
+    category: {
+        type: Object,
+        required: true
+    },
+
+    categoryName: {
+        type: String,
+        required: true
+    },
+
     date: {
         type: Date,
         default: Date.now()

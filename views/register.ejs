@@ -1,25 +1,28 @@
 <div class="login-form">
     <div class="form">
         <div class="logo">
-            <img src="/img/main_logo.png" class="img-fluid mb-3" alt="Portare Mate" width="200">
+            <a href="/">
+                <img src="/img/main_logo.png" class="img-fluid mb-3" alt="Portare Mate" width="200">
+            </a>
         </div>
+        <%- include('../partials/message'); %>
         <div class="card card-body pt-5">
             <h1 class="text-center mb-3">Register</h1>
-            <form action="/authenticate/login" method="POST">
+            <form action="/authenticate/register" method="POST">
                 <div class="form-group mb-3">
-                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" />
+                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="<%= typeof firstName != 'undefined' ? firstName : '' %>" />
                 </div>
                 <div class="form-group mb-3">
-                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" />
+                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" value="<%= typeof lastName != 'undefined' ? lastName : '' %>" />
                 </div>
                 <div class="form-group mb-3">
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" />
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" value="<%= typeof email != 'undefined' ? email : '' %>" />
                 </div>
                 <div class="form-group mb-3">
-                    <input type="password" id="password" name="password" class="form-control" placeholder=" Password" />
+                    <input type="password" id="password" name="password" class="form-control" placeholder=" Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
                 </div>
                 <div class="form-group mb-3">
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" />
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : '' %>" />
                 </div>
                 <button type="submit" class="btn bg-primary w-100">Register</button>
             </form>

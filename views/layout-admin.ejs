@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/all.css" />
+    <link
+        href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.4/af-2.5.3/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/kt-2.9.0/r-2.4.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/datatables.min.css"
+        rel="stylesheet" />
     <title>Portare Mate</title>
 </head>
 
@@ -30,15 +33,8 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/">Home</a>
                     </li>
-                    <p class="text-dark">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/trips">Trips</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/membership">Memebership</a>
-                    </li>
                 </ul>
-                <%- include('../partials/auth'); %>
+                <%- include('../partials/admin'); %>
             </div>
         </div>
     </nav>
@@ -50,13 +46,11 @@
                 <a class="nav-link times fs-4 float-end" href="#"><i class="fa-solid fa-times"></i></a>
             </li>
             <li class="nav-item p-1">
-                <a class="nav-link active" href="/">Home</a>
+                <a class="nav-link active" href="/dashboard/places"><i class="fa-solid fa-place-of-worship"></i>
+                    Places</a>
             </li>
             <li class="nav-item p-1">
-                <a class="nav-link" href="/flights"><i class="fa-solid fa-plane fa-fade"></i> Flights</a>
-            </li>
-            <li class="nav-item p-1">
-                <a class="nav-link" href="/stays"><i class="fa-solid fa-bed fa-flip"></i> Stays</a>
+                <a class="nav-link" href="/dashboard/category"><i class="fa-solid fa-layer-group"></i> Category</a>
             </li>
             <li class="nav-item p-1">
                 <a class="nav-link" href="/trains-buses"><i class="fa-solid fa-bus fa-beat"></i> Trains & Buses</a>
@@ -98,9 +92,29 @@
         </div>
     </div>
 
+    <script src="/dist/jquery.js"></script>
     <script src="/umd/popper.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/site.js"></script>
+    <script src="/js/admin.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script
+        src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.4/af-2.5.3/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/kt-2.9.0/r-2.4.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/datatables.min.js"></script>
+
+    <script>
+        let table = $('#example1').DataTable();
+
+        new $.fn.dataTable.Buttons(table, {
+            buttons: [
+                'copy', 'excel', 'pdf'
+            ]
+        });
+
+        table.buttons().container()
+            .appendTo($('.col-sm-6:eq(0)', table.table().container()));
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="top-100">
+        <!-- Button trigger modal -->
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Places</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-lg-11">
+                <h2 class="top-90 icon"><i class="fa-solid fa-bars"></i></h2>
+                <h1>Places</h1>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn bg-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-plus fa-beat"></i>
+                </button>
+            </div>
+        </div>
+    
+        <div class="center">
+            <%- include('../partials/message'); %>
+        </div>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="">
+                            <div class="card card-body pt-5">
+                                <form action="/dashboard/places" method="POST">
+                                    <div class="form-group mb-3">
+                                        <input type="text" id="name" name="name" class="form-control"
+                                            placeholder="Name of place"
+                                            value="<%= typeof name != 'undefined' ? name : '' %>" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input type="text" id="location" name="location" class="form-control"
+                                            placeholder="Location"
+                                            value="<%= typeof location != 'undefined' ? location : '' %>" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <textarea type="text" id="description" name="description" class="form-control"
+                                            placeholder="Description"
+                                            value="<%= typeof description != 'undefined' ? description : '' %>"></textarea>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input type="url" id="image" name="image" class="form-control"
+                                            placeholder="Image url"
+                                            value="<%= typeof image != 'undefined' ? image : '' %>" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input type="number" id="price" name="price" class="form-control"
+                                            placeholder="Price" value="<%= typeof price != 'undefined' ? price : '' %>" />
+                                    </div>
+
+                                    <select class="form-select mb-3" id="category" name="category" aria-label="Default select example">
+                                        <% if(typeof categories != 'undefined') { %>
+                                        <% categories.forEach((category) => { %>
+                                            <option value="<%= typeof category.id != 'undefined' ? category.id : 0 %>" > <%= category.name %> </option>
+                                        <% }); %>
+                                        <% } %>
+                                    </select>
+
+                                    <button type="submit" class="btn btn-success w-100">Save</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Datatable
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datatable with every place data</h5>
+                <table id="example1" class="display table-striped table-hover table-bordered table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <% if(typeof places != 'undefined') { %>
+                        <% places.forEach((place) => { %>
+                        <tr>
+                            <td> <%= place.name %> </td>
+                            <td> <%= place.location %> </td>
+                            <td> <%= place.description.slice(0, 65) + "..." %> </td>
+                            <td> $ <%= place.price %> </td>
+                            <td> <%= place.category.name %> </td>
+                            <td> <%= place.date.toString('MMM dd, YYYY').slice(0, 10); %> </td>
+                            <td class="text-center"> <i class="fa-solid fa-pen-to-square fa-beat"></i> </td>
+                            <td class="text-center"><a href="/dashboard/places/<%= place.id %>"> <i class="fa-solid fa-trash trash fa-bounce"></i> </a> </td>
+                        </tr>
+                        <% }); %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
